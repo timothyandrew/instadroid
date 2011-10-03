@@ -6,12 +6,18 @@
     <uses-sdk android:minSdkVersion="8" />
 
     <application android:icon="@drawable/icon" android:label="@string/app_name">
-        <activity android:name=".InstaDroid"
-                  android:label="@string/app_name">
-            <intent-filter>
+        <activity android:name=".ImageIndexActivity"
+                  android:label="@string/app_name"
+                  android:theme="@android:style/Theme.NoTitleBar">
+        	<intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        
+        <activity android:name=".LoginRegisterActivity"
+        		  android:label="Login/Register"
+        		  android:theme="@android:style/Theme.NoTitleBar">
         </activity>
 
     </application>
