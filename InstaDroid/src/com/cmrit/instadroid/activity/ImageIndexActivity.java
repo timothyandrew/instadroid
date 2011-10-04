@@ -1,14 +1,15 @@
 package com.cmrit.instadroid.activity;
 
 import java.io.FileOutputStream;
+import java.util.ArrayList;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
-import android.hardware.Camera;
 import android.os.Bundle;
 import android.os.Environment;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -20,15 +21,21 @@ import android.widget.Toast;
 
 import com.cmrit.instadroid.R;
 import com.cmrit.instadroid.adapter.ImageIndexAdapter;
+import com.cmrit.instadroid.util.FilePathtoPositionMap;
 
 public class ImageIndexActivity extends Activity {
-    private String currentState = "logged-out"; //Can be "logged-in" or "logged-out"
+    public static String currentState = "logged-out"; //Can be "logged-in" or "logged-out"    
+    private GridView gridView;
     
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.image_index);
-        
+    }
+    
+    @Override
+    protected void onStart(){
+    	super.onStart();
         if(!checkSDCard()){
         	Toast.makeText(this, "Can't open app. SD Card required.", Toast.LENGTH_SHORT).show();
         	finish();
@@ -37,27 +44,14 @@ public class ImageIndexActivity extends Activity {
         Bundle b = getIntent().getExtras();
         if(b != null) currentState = b.getString("currentState");
 
-        GridView gridView = (GridView) findViewById(R.id.gridview);
+        gridView = (GridView) findViewById(R.id.gridview);
         ImageIndexAdapter gridAdapter = new ImageIndexAdapter(this);
         gridView.setAdapter(gridAdapter);
         
         gridView.setOnItemClickListener(new OnItemClickListener() {
         	public void onItemClick(AdapterView<?> parent, View v, int position, long id){
         		Intent intent = new Intent(ImageIndexActivity.this, FullScreenImageActivity.class);
-        		
-        		//Get bitmap from the image view
-        		ImageView iv = (ImageView) v;
-        		BitmapDrawable bd = (BitmapDrawable) iv.getDrawable();
-        		Bitmap bm = bd.getBitmap();
-        		
-        		//Save it to a temp location that FullScreenImageActivity can retrieve from
-        		try{
-        			FileOutputStream out = new FileOutputStream(getExternalFilesDir(null).getPath() + "/tmpFile.jpg");                			
-        			bm.compress(Bitmap.CompressFormat.JPEG, 100, out);
-        		} catch(Exception e){
-        			e.printStackTrace();
-        		}
-        		
+        		intent.putExtra("currentImagePosition", position);        		
         		startActivity(intent);
         	}
 		});

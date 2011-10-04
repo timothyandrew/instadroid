@@ -33,6 +33,7 @@ public class LoginRegisterActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				//TODO: Authenticate and store credentials in DB
+				ImageIndexActivity.currentState = "logged-in";
 				LoginRegisterActivity.this.finish();
 			}
 		});

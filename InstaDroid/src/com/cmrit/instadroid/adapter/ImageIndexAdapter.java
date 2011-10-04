@@ -15,75 +15,81 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.cmrit.instadroid.R;
+import com.cmrit.instadroid.util.FilePathtoPositionMap;
 
 public class ImageIndexAdapter extends BaseAdapter {
-    private Context mContext;
-    private File[] imagePaths;
+	private Context mContext;
+	private File[] imagePaths;
 
-    public ImageIndexAdapter(Context c) {
-        mContext = c;
-        getImagesFromExternalStorage();
-    }
+	public ImageIndexAdapter(Context c) {
+		mContext = c;
+		FilePathtoPositionMap.clear();
+		getImagesFromExternalStorage();
+	}
 
-    public int getCount() {
-        return imagePaths.length;
-    }
+	public int getCount() {
+		return imagePaths.length;
+	}
 
-    public Object getItem(int position) {
-        return null;
-    }
+	public Object getItem(int position) {
+		return null;
+	}
 
-    public long getItemId(int position) {
-        return 0;
-    }
+	public long getItemId(int position) {
+		return 0;
+	}
 
-    // create a new ImageView for each item referenced by the Adapter
-    public View getView(int position, View convertView, ViewGroup parent) {
-        ImageView imageView;
-        if (convertView == null) {  // if it's not recycled, initialize some attributes
-            imageView = new ImageView(mContext);
-            imageView.setLayoutParams(new GridView.LayoutParams(200, 200));
-            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            imageView.setPadding(25, 25, 25, 25);
-        } else {
-            imageView = (ImageView) convertView;
-        }
-        try{
-        	Bitmap b = BitmapFactory.decodeFile(imagePaths[position].getPath());
-        	imageView.setImageBitmap(b);
-		} catch(Exception e){
+	// create a new ImageView for each item referenced by the Adapter
+	public View getView(int position, View convertView, ViewGroup parent) {
+		ImageView imageView;
+		if (convertView == null) { // if it's not recycled, initialize some
+									// attributes
+			imageView = new ImageView(mContext);
+			imageView.setLayoutParams(new GridView.LayoutParams(200, 200));
+			imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+			imageView.setPadding(25, 25, 25, 25);
+		} else {
+			imageView = (ImageView) convertView;
+		}
+		try {
+			Bitmap b = BitmapFactory.decodeFile(imagePaths[position].getPath());
+			imageView.setImageBitmap(b);
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-       
-        return imageView;
-    }
-    
-    private void getImagesFromExternalStorage(){
-    	File dir = mContext.getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-    	imagePaths = dir.listFiles(new FileFilter() {			
+
+		FilePathtoPositionMap.addItem(position, imagePaths[position].getPath());
+
+		return imageView;
+	}
+
+	private void getImagesFromExternalStorage() {
+		File dir = mContext.getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+		imagePaths = dir.listFiles(new FileFilter() {
 			@Override
 			public boolean accept(File pathname) {
 				String extension = getExtension(pathname);
-				if(extension != null){
-					if(extension.equals("jpg") || extension.equals("jpeg"))
+				if (extension != null) {
+					if (extension.equals("jpg") || extension.equals("jpeg"))
 						return true;
 				}
 				return false;
 			}
-			private String getExtension(File f) {
-		        String ext = null;
-		        String s = f.getName();
-		        
-		        if(s.charAt(0) == '.')
-		        	return null;
-		        
-		        int i = s.lastIndexOf('.');
 
-		        if (i > 0 &&  i < s.length() - 1) {
-		            ext = s.substring(i+1).toLowerCase();
-		        }
-		        return ext;
-		    }
+			private String getExtension(File f) {
+				String ext = null;
+				String s = f.getName();
+
+				if (s.charAt(0) == '.')
+					return null;
+
+				int i = s.lastIndexOf('.');
+
+				if (i > 0 && i < s.length() - 1) {
+					ext = s.substring(i + 1).toLowerCase();
+				}
+				return ext;
+			}
 		});
-    }
+	}
 }
