@@ -6,7 +6,7 @@
 	android:gravity="center"
 	android:orientation="vertical">
 	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:id="@+id/indexlayout"
+	android:id="@+id/login_register_buttons_layout"
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
 	android:orientation="horizontal"
@@ -26,6 +26,13 @@
      		android:id="@+id/register_button"
      		android:textSize="20dp" />
 	</LinearLayout>
+	<Button
+			android:id="@+id/logged_in"
+			android:text="Logged in as timothyandrew"
+			android:visibility="gone"
+     		android:layout_height="wrap_content"
+     		android:layout_width="fill_parent"
+     		android:textSize="18dp"/>
 	<GridView
     	android:id="@+id/gridview"
     	android:layout_width="fill_parent" 
