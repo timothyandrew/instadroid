@@ -1,4 +1,4 @@
-package com.cmrit.instadroid.activity.lib;
+package com.timothyandrew.instadroid.activity.lib;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;

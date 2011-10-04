@@ -1,11 +1,8 @@
-package com.cmrit.instadroid.activity;
+package com.timothyandrew.instadroid.activity;
 
-import com.cmrit.instadroid.R;
-import com.cmrit.instadroid.R.id;
-import com.cmrit.instadroid.R.layout;
+import com.timothyandrew.instadroid.R;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;

@@ -1,4 +1,4 @@
-package com.cmrit.instadroid.activity;
+package com.timothyandrew.instadroid.activity;
 
 import java.io.FileOutputStream;
 
@@ -20,9 +20,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.cmrit.instadroid.R;
-import com.cmrit.instadroid.adapter.EffectsGalleryAdapter;
-import com.cmrit.instadroid.util.FilePathtoPositionMap;
+import com.timothyandrew.instadroid.R;
+import com.timothyandrew.instadroid.adapter.EffectsGalleryAdapter;
+import com.timothyandrew.instadroid.util.FilePathtoPositionMap;
 
 
 public class FullScreenImageActivity extends Activity {

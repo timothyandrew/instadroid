@@ -1,4 +1,4 @@
-package com.cmrit.instadroid.adapter;
+package com.timothyandrew.instadroid.adapter;
 
 import java.io.File;
 import java.io.FileFilter;
@@ -12,10 +12,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.Toast;
 
-import com.cmrit.instadroid.R;
-import com.cmrit.instadroid.util.FilePathtoPositionMap;
+import com.timothyandrew.instadroid.util.FilePathtoPositionMap;
 
 public class ImageIndexAdapter extends BaseAdapter {
 	private Context mContext;

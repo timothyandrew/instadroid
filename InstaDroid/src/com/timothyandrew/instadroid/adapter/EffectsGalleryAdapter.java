@@ -1,4 +1,4 @@
-package com.cmrit.instadroid.adapter;
+package com.timothyandrew.instadroid.adapter;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -10,9 +10,9 @@ import android.widget.Gallery;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.cmrit.instadroid.R;
-import com.cmrit.instadroid.activity.FullScreenImageActivity;
-import com.cmrit.instadroid.activity.lib.BitmapEffects;
+import com.timothyandrew.instadroid.R;
+import com.timothyandrew.instadroid.activity.FullScreenImageActivity;
+import com.timothyandrew.instadroid.activity.lib.BitmapEffects;
 
 public class EffectsGalleryAdapter extends BaseAdapter {
     int mGalleryItemBackground;

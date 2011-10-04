@@ -1,27 +1,19 @@
-package com.cmrit.instadroid.activity;
-
-import java.io.FileOutputStream;
-import java.util.ArrayList;
+package com.timothyandrew.instadroid.activity;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Environment;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.GridView;
-import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.cmrit.instadroid.R;
-import com.cmrit.instadroid.adapter.ImageIndexAdapter;
-import com.cmrit.instadroid.util.FilePathtoPositionMap;
+import com.timothyandrew.instadroid.R;
+import com.timothyandrew.instadroid.adapter.ImageIndexAdapter;
 
 public class ImageIndexActivity extends Activity {
     public static String currentState = "logged-out"; //Can be "logged-in" or "logged-out"    
@@ -29,7 +21,7 @@ public class ImageIndexActivity extends Activity {
     
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    	super.onCreate(savedInstanceState);
         setContentView(R.layout.image_index);
     }
     

@@ -1,4 +1,4 @@
-package com.cmrit.instadroid.util;
+package com.timothyandrew.instadroid.util;
 
 import java.util.HashMap;
 
