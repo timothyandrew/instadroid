@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+	<item android:id="@+id/edit"
+		android:title="Edit" 
+		android:icon="@android:drawable/ic_menu_edit" />
+	
+	<item android:id="@+id/effects"
+		android:title="Effects" 
+		android:icon="@android:drawable/ic_menu_view"/>
+	
+	<item android:id="@+id/share"
+		android:title="Share" 
+		android:icon="@android:drawable/ic_menu_share" />
+	
+	<item android:id="@+id/comments"
+		android:title="Comments" 
+		android:icon="@android:drawable/ic_menu_sort_alphabetically"/>
+	
+	<item android:id="@+id/settings"
+		android:title="Settings" 
+		android:icon="@android:drawable/ic_menu_preferences" />
+	
+</menu>

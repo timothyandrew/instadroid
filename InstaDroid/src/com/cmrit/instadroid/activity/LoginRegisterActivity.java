@@ -1,4 +1,8 @@
-package com.cmrit.instadroid;
+package com.cmrit.instadroid.activity;
+
+import com.cmrit.instadroid.R;
+import com.cmrit.instadroid.R.id;
+import com.cmrit.instadroid.R.layout;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -28,9 +32,7 @@ public class LoginRegisterActivity extends Activity {
 		ok.setOnClickListener(new OnClickListener() {			
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(LoginRegisterActivity.this, ImageIndexActivity.class);
-				intent.putExtra("currentState", "logged-in");
-				startActivity(intent);
+				//TODO: Authenticate and store credentials in DB
 				LoginRegisterActivity.this.finish();
 			}
 		});

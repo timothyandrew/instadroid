@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<array name="sharing_sites_list">
+		<item>"Facebook"</item>
+		<item>"Twitter"</item>
+		<item>"Email"</item>
+		<item>"Get URL"</item>						
+	</array>
+</resources>
